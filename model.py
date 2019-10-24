@@ -11,15 +11,15 @@ db_connection = mysql.connector.connect(
 
 db_cursor = db_connection.cursor()
 
-class Model:
+class Modelo:
 
-    def get_users(self):
+    def get_usuarios(self):
       sql_select = "SELECT * FROM usuario"
       db_cursor.execute(sql_select)
       records = db_cursor.fetchall()
       return records
 
-    def insert_user(self, var):
+    def insertar_usuario(self, campos):
         sql_insert = "INSERT INTO usuario (idUsuario, Nombre, Apellido, Email) VALUES (%s, %s, %s, %s)" 
-        db_cursor.execute(sql_insert, var)
+        db_cursor.execute(sql_insert, campos)
         db_connection.commit()

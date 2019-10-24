@@ -1,6 +1,6 @@
 import web
 import request
-from model import Model
+from model import Modelo
 
 render = web.template.render('templates/')
 
@@ -17,7 +17,7 @@ class exitoso:
 
 class listarUsuario:
   def GET(self):
-    object_list = Model.get_users(self)
+    lista_usuarios = Modelo.get_usuarios(self)
     return render.list_usuarios()
 
 class crearUsuario:
@@ -27,8 +27,8 @@ class crearUsuario:
 class guardarUsuario:
   def POST(self):
     usuario = web.input()
-    var = (usuario['codigo'], usuario['nombre'], usuario['apellido'], usuario['correo'])
-    Model.insert_user(self, var)
+    campos = (usuario['codigo'], usuario['nombre'], usuario['apellido'], usuario['correo'])
+    Modelo.insertar_usuario(self, campos)
     return render.exitoso()
 
 
