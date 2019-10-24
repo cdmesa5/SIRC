@@ -4,7 +4,7 @@ import mysql.connector
 db_connection = mysql.connector.connect(
   host="localhost",
   user="root",
-  passwd="Spv20531.",
+  passwd="",
   database="sirc"
 )
 # creating database_cursor to perform SQL operation
